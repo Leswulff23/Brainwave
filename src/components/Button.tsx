@@ -24,7 +24,14 @@ const Button = ({ className, href, onClick, children, px, white = false }: Props
         </button>
     );
 
-    return renderButton()
+    const renderLink = () => (
+        <a href={href} className={classes}>
+        <span className={spanClasses}>{children}</span>
+        <ButtonSvg white={white} />
+        </a>
+    );
+
+    return href ? renderLink() : renderButton();
 }
 
 export default Button;
